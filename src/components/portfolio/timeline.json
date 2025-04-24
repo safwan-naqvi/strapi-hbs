@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_portfolio_timelines",
+  "info": {
+    "displayName": "timeline"
+  },
+  "options": {},
+  "attributes": {
+    "time": {
+      "type": "integer"
+    },
+    "duration": {
+      "type": "enumeration",
+      "enum": [
+        "Day",
+        "Days",
+        "Month",
+        "Months",
+        "Year",
+        "Years"
+      ]
+    }
+  }
+}

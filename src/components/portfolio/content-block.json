@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_portfolio_content_blocks",
+  "info": {
+    "displayName": "ContentBlock",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "body": {
+      "type": "blocks"
+    },
+    "title": {
+      "type": "string"
+    }
+  }
+}

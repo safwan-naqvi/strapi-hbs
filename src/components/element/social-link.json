@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_element_social_links",
+  "info": {
+    "displayName": "Social Link",
+    "icon": "bell"
+  },
+  "options": {},
+  "attributes": {
+    "platform": {
+      "type": "enumeration",
+      "enum": [
+        "Facebook",
+        "Twitter",
+        "LinkedIn",
+        "GitHub",
+        "Website",
+        "Other"
+      ]
+    },
+    "url": {
+      "type": "string",
+      "regex": "^(https?:\\/\\/)?(www\\.)?[a-zA-Z0-9-]+\\.[a-zA-Z]{2,}(\\/[^\\s]*)?$"
+    }
+  }
+}

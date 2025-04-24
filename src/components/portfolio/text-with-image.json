@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_portfolio_text_with_images",
+  "info": {
+    "displayName": "Text With Image",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "blocks"
+    },
+    "image": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.media"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_shared_code_blocks",
+  "info": {
+    "displayName": "CodeBlock",
+    "icon": "bold"
+  },
+  "options": {},
+  "attributes": {
+    "Language": {
+      "type": "enumeration",
+      "enum": [
+        "HTML",
+        "CSS",
+        "JAVASCRIPT",
+        "TYPESCRIPT",
+        "PYTHON",
+        "BASH",
+        "OTHER"
+      ]
+    },
+    "Caption": {
+      "type": "text"
+    },
+    "code": {
+      "type": "blocks"
+    }
+  }
+}

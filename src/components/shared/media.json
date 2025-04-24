@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_shared_media",
+  "info": {
+    "displayName": "media",
+    "icon": "chartBubble",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "link": {
+      "type": "string"
+    },
+    "new_tab": {
+      "type": "boolean"
+    },
+    "no_follow": {
+      "type": "boolean"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

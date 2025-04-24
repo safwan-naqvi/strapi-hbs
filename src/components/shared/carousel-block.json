@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_shared_carousel_blocks",
+  "info": {
+    "displayName": "Carousel Block",
+    "icon": "bold"
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "blocks"
+    },
+    "images": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.media"
+    }
+  }
+}

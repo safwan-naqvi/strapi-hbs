@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_shared_quote_blocks",
+  "info": {
+    "displayName": "QuoteBlock",
+    "icon": "filter"
+  },
+  "options": {},
+  "attributes": {
+    "quote": {
+      "type": "text"
+    },
+    "author": {
+      "type": "string"
+    },
+    "alignment": {
+      "type": "enumeration",
+      "enum": [
+        "left",
+        "center",
+        "right"
+      ]
+    }
+  }
+}

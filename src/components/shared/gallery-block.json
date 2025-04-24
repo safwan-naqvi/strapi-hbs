@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_gallery_blocks",
+  "info": {
+    "displayName": "GalleryBlock",
+    "icon": "chartCircle",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "images": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.media"
+    },
+    "content": {
+      "type": "blocks"
+    }
+  }
+}

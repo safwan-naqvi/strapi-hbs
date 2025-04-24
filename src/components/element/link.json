@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_element_links",
+  "info": {
+    "displayName": "Link",
+    "icon": "earth",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "href": {
+      "type": "string"
+    },
+    "external": {
+      "type": "boolean"
+    },
+    "sublink": {
+      "type": "component",
+      "repeatable": true,
+      "component": "element.sub-link"
+    }
+  }
+}

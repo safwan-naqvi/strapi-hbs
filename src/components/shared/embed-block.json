@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_shared_embed_blocks",
+  "info": {
+    "displayName": "EmbedBlock",
+    "icon": "code"
+  },
+  "options": {},
+  "attributes": {
+    "EmbedType": {
+      "type": "enumeration",
+      "enum": [
+        "iframe",
+        "youtube",
+        "instagram",
+        "tweet",
+        "other"
+      ]
+    },
+    "embedUrl": {
+      "type": "string"
+    },
+    "embedCode": {
+      "type": "text"
+    },
+    "width": {
+      "type": "integer"
+    },
+    "height": {
+      "type": "integer"
+    }
+  }
+}

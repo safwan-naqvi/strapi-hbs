@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_shared_bodies",
+  "info": {
+    "displayName": "body",
+    "icon": "brush"
+  },
+  "options": {},
+  "attributes": {
+    "body": {
+      "type": "blocks"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_shared_list_blocks",
+  "info": {
+    "displayName": "ListBlock",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "item": {
+      "type": "component",
+      "repeatable": true,
+      "component": "element.list-item"
+    },
+    "Type": {
+      "type": "enumeration",
+      "enum": [
+        "unordered",
+        "ordered",
+        "checklist"
+      ]
+    }
+  }
+}
