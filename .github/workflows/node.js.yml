@@ -15,6 +15,24 @@ jobs:
       matrix:
         node-version: [22.15.0]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+    env:
+      ADMIN_JWT_SECRET: ${{secrets.ADMIN_JWT_SECRET}}
+      API_TOKEN_SALT: ${{secrets.API_TOKEN_SALT}}
+      APP_KEYS: ${{secrets.APP_KEYS}}
+      CLOUDINARY_KEY: ${{secrets.CLOUDINARY_KEY}}
+      CLOUDINARY_NAME: ${{secrets.CLOUDINARY_NAME}}
+      CLOUDINARY_SECRET: ${{secrets.CLOUDINARY_SECRET}}
+      DATABASE_CLIENT: ${{secrets.DATABASE_CLIENT}}
+      DATABASE_HOST: ${{secrets.DATABASE_HOST}}
+      DATABASE_NAME: ${{secrets.DATABASE_NAME}}
+      DATABASE_PASSWORD: ${{secrets.DATABASE_PASSWORD}}
+      DATABASE_PORT: ${{secrets.DATABASE_PORT}}
+      DATABASE_SSL: ${{secrets.DATABASE_SSL}}
+      DATABASE_USERNAME: ${{secrets.DATABASE_USERNAME}}
+      HOST: ${{secrets.HOST}}
+      JWT_SECRET: ${{secrets.JWT_SECRET}}
+      PORT: ${{secrets.PORT}}
+      TRANSFER_TOKEN_SALT: ${{secrets.TRANSFER_TOKEN_SALT}}
 
     steps:
       - uses: actions/checkout@v4
