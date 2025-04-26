@@ -48,20 +48,9 @@ jobs:
       - name: Build Admin Panel
         run: NODE_ENV=production npm run build
 
+      - name: Changing Directory
+        run: cd /home/hashbitstudio-api/actions-runner/_work/strapi-hbs/strapi-hbs
       - name: Start or Reload Strapi App in Development Mode
-        run: |
-          cd /home/hashbitstudio-api/actions-runner/_work/strapi-hbs/strapi-hbs
-          if sudo pm2 list | grep -q strapi-hbs-dev; then
-            echo "Reloading existing strapi-hbs-dev app with PM2 as root..."
-            sudo pm2 reload strapi-hbs-dev
-          else
-            echo "Starting new strapi-hbs-dev app with PM2 as root..."
-            sudo pm2 start ecosystem.config.js --only strapi-hbs-dev
-          fi
-          sudo pm2 save
-          if [ $? -eq 0 ]; then
-            sudo pm2 save
-          fi
-
+        run: pm2 restart strapi-hbs-dev
       - name: Skip Post-Job Cache
         run: echo "Skipping heavy cache compression to save build time."
