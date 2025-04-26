@@ -47,7 +47,6 @@ jobs:
 
       - name: Build Admin Panel
         run: npm run build --if-present
-
       - name: Changing Directory
         run: cd /home/hashbitstudio-api/actions-runner/_work/strapi-hbs/strapi-hbs
       - name: Start or Reload Strapi App in Development Mode
