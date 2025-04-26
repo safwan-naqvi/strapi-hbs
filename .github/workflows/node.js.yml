@@ -46,7 +46,7 @@ jobs:
           echo "CLOUDINARY_SECRET=${{ secrets.CLOUDINARY_SECRET }}" >> .env
 
       - name: Build Admin Panel
-        run: NODE_ENV=production npm run build
+        run: npm run build --if-present
 
       - name: Changing Directory
         run: cd /home/hashbitstudio-api/actions-runner/_work/strapi-hbs/strapi-hbs
