@@ -48,5 +48,19 @@ jobs:
       - name: Build Admin Panel
         run: NODE_ENV=production npm run build
 
+      - name: Start or Reload Strapi App in Development Mode
+        run: |
+          cd /home/hashbitstudio-api/actions-runner/_work/strapi-hbs/strapi-hbs
+          if pm2 list | grep -q strapi-hbs-dev; then
+            echo "Reloading existing strapi-hbs-dev app with PM2..."
+            pm2 reload strapi-hbs-dev
+          else
+            echo "Starting new strapi-hbs-dev app with PM2..."
+            pm2 start ecosystem.config.js --only strapi-hbs-dev
+          fi
+          if [ $? -eq 0 ]; then
+            pm2 save
+          fi
+
       - name: Skip Post-Job Cache
         run: echo "Skipping heavy cache compression to save build time."
