@@ -1,6 +1,3 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
-
 name: Strapi HBS Node.js CI
 
 on:
@@ -14,32 +11,42 @@ jobs:
     strategy:
       matrix:
         node-version: [22.15.0]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-    env:
-      ADMIN_JWT_SECRET: ${{secrets.ADMIN_JWT_SECRET}}
-      API_TOKEN_SALT: ${{secrets.API_TOKEN_SALT}}
-      APP_KEYS: ${{secrets.APP_KEYS}}
-      CLOUDINARY_KEY: ${{secrets.CLOUDINARY_KEY}}
-      CLOUDINARY_NAME: ${{secrets.CLOUDINARY_NAME}}
-      CLOUDINARY_SECRET: ${{secrets.CLOUDINARY_SECRET}}
-      DATABASE_CLIENT: ${{secrets.DATABASE_CLIENT}}
-      DATABASE_HOST: ${{secrets.DATABASE_HOST}}
-      DATABASE_NAME: ${{secrets.DATABASE_NAME}}
-      DATABASE_PASSWORD: ${{secrets.DATABASE_PASSWORD}}
-      DATABASE_PORT: ${{secrets.DATABASE_PORT}}
-      DATABASE_SSL: ${{secrets.DATABASE_SSL}}
-      DATABASE_USERNAME: ${{secrets.DATABASE_USERNAME}}
-      HOST: ${{secrets.HOST}}
-      JWT_SECRET: ${{secrets.JWT_SECRET}}
-      PORT: ${{secrets.PORT}}
-      TRANSFER_TOKEN_SALT: ${{secrets.TRANSFER_TOKEN_SALT}}
 
     steps:
-      - uses: actions/checkout@v4
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js and NPM Cache
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
-      - run: npm ci
-      - run: npm run build --if-present
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Create .env File
+        run: |
+          echo "HOST=${{ secrets.HOST }}" >> .env
+          echo "PORT=${{ secrets.PORT }}" >> .env
+          echo "APP_KEYS=${{ secrets.APP_KEYS }}" >> .env
+          echo "API_TOKEN_SALT=${{ secrets.API_TOKEN_SALT }}" >> .env
+          echo "ADMIN_JWT_SECRET=${{ secrets.ADMIN_JWT_SECRET }}" >> .env
+          echo "JWT_SECRET=${{ secrets.JWT_SECRET }}" >> .env
+          echo "TRANSFER_TOKEN_SALT=${{ secrets.TRANSFER_TOKEN_SALT }}" >> .env
+          echo "DATABASE_CLIENT=${{ secrets.DATABASE_CLIENT }}" >> .env
+          echo "DATABASE_HOST=${{ secrets.DATABASE_HOST }}" >> .env
+          echo "DATABASE_PORT=${{ secrets.DATABASE_PORT }}" >> .env
+          echo "DATABASE_NAME=${{ secrets.DATABASE_NAME }}" >> .env
+          echo "DATABASE_USERNAME=${{ secrets.DATABASE_USERNAME }}" >> .env
+          echo "DATABASE_PASSWORD=${{ secrets.DATABASE_PASSWORD }}" >> .env
+          echo "DATABASE_SSL=${{ secrets.DATABASE_SSL }}" >> .env
+          echo "CLOUDINARY_NAME=${{ secrets.CLOUDINARY_NAME }}" >> .env
+          echo "CLOUDINARY_KEY=${{ secrets.CLOUDINARY_KEY }}" >> .env
+          echo "CLOUDINARY_SECRET=${{ secrets.CLOUDINARY_SECRET }}" >> .env
+
+      - name: Build Admin Panel
+        run: NODE_ENV=production npm run build
+
+      - name: Skip Post-Job Cache
+        run: echo "Skipping heavy cache compression to save build time."
