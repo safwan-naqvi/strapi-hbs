@@ -37,5 +37,8 @@
   },
   "strapi": {
     "uuid": "700eb98f-2e52-40f5-85b4-f542f0368f14"
+  },
+  "devDependencies": {
+    "vite": "^4.4.9"
   }
 }
